@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <script src="jquery-3.2.1.js"></script>
+  <title>exercice3 JQ</title>
+</head>
+<body>
+  <div style="background-color: red;text-align: center;" class="game">
+    <p>Merci de saisir un chiffre ente 0 et 100</p>
+  </div>
+  <div class="">
+    <input id="number"type="text" name="" value="0" />
+  </div>
+  <button id="button" type="button" name="button">Soumettre ma réponse</button>
+  <script>
+$(function(){
+  //Math.floor=arondi
+  var result =  Math.floor(0 + (100-1)*Math.random());
+  var nbclick = 0;
+  $('#button').click(function(){
+  nbclick ++;
+  var number = $('#number').val();
+if (number > result){
+  alert('moins');
+}else if (number < result) {
+  alert('plus');
+}else{
+  alert('BRAVO vous avez réussi en ' + nbclick + ' coups')
+}
+
+
+
+})
+
+
+
+
+
+
+})
+
+
+
+
+
+  </script>
+</body>
+</html>
