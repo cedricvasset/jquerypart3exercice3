@@ -9,41 +9,35 @@
   <div style="background-color: red;text-align: center;" class="game">
     <p>Merci de saisir un chiffre ente 0 et 100</p>
   </div>
-  <div class="">
-    <input id="number"type="text" name="" value="0" />
+  <div class="number">
+    <input id="number"type="text" name="number" value="0" />
   </div>
   <button id="button" type="button" name="button">Soumettre ma réponse</button>
   <script>
-$(function(){
-  //Math.floor=arondi
-  var result =  Math.floor(0 + (100-1)*Math.random());
-  var nbclick = 0;
-  $('#button').click(function(){
-  nbclick ++;
-  var number = $('#number').val();
-if (number > result){
-  alert('moins');
-}else if (number < result) {
-  alert('plus');
-}else{
-  alert('BRAVO vous avez réussi en ' + nbclick + ' coups')
-}
-
-
-
-})
-
-
-
-
-
-
-})
-
-
-
-
-
+  $(function(){
+    //Math.floor=arondi
+    var result =  Math.floor(100*Math.random())+1;
+    //1 ou 100 sont exclus donc on ajoute 1 pour que celui soit inclus
+    //math random donne un chiffre entre 0 et 1
+    //en le multipliant par 100 on obtient un chiffre entre 0 et 100
+    var nbclick = 0;
+    $('#button').click(function(){
+      nbclick ++;
+      var number = $('#number').val();
+      //isNaN verification qu il s agis bien d un chiffre
+      if ((isNaN(number)==false) && (number<100)){
+        if (number > result){
+          alert('moins');
+        }else if (number < result) {
+          alert('plus');
+        }else{
+          alert('BRAVO vous avez réussi en ' + nbclick + ' coups')
+        }
+      }else{
+        alert('merci de saisir un chiffre valide')
+      }
+    })
+  })
   </script>
 </body>
 </html>
